@@ -1,0 +1,7 @@
+scop
+
+.vscode/*
+.DS_Store
+
+*.d
+*.o
