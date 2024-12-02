@@ -1,5 +1,6 @@
 # Render 3D Object File
 > A lightweight 3D object renderer for `.obj` files with basic transformation and texturing capabilities.
+ Built using **OpenGL**, **GLFW**, **GLAD**.
 
 ## Features
 - **Parse `.obj` files**: Efficiently loads and parses 3D object data stored in Wavefront `.obj` format.
