@@ -1,5 +1,3 @@
-아래는 정리된 README.md 초안입니다:
-
 # Render 3D Object File
 > A lightweight 3D object renderer for `.obj` files with basic transformation and texturing capabilities.
 
