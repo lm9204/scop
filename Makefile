@@ -9,10 +9,11 @@ LDFLAGS = -L dependencies/library \
           -framework CoreFoundation
 CXXFLAGS = -Wall -Wdeprecated -MMD -MP -g3 -std=c++17 $(INCLUDE)
 CFLAGS = $(CXXFLAGS)
-SRCS_C = glad.c
+SRCS_C = dependencies/glad.c
 SRCS_CPP = main.cpp
+SRCS_PATH = srcs
 # SRCS = $(SRCS_CPP) $(SRCS_C)
-OBJS_CPP = $(SRCS_CPP:.cpp=.o)
+OBJS_CPP = $(addprefix $(SRCS_PATH)/, $(SRCS_CPP:.cpp=.o))
 OBJS_C = $(SRCS_C:.c=.o)
 NAME = scop
 
@@ -30,7 +31,7 @@ $(NAME): $(OBJS_CPP) $(OBJS_C)
 clean:
 	rm -rf $(OBJS_CPP)
 	rm -rf $(OBJS_C)
-	rm -rf $(SRCS_CPP:.cpp=.d)
+	rm -rf $(addprefix $(SRCS_PATH)/, $(SRCS_CPP:.cpp=.d))
 	rm -rf $(SRCS_C:.c=.d)
 
 fclean: clean
@@ -38,7 +39,7 @@ fclean: clean
 
 re: fclean all
 
--include $(SRCS_CPP:.cpp=.d)
+-include $(addprefix $(SRCS_PATH)/, $(SRCS_CPP:.cpp=.d))
 -include $(SRCS_C:.c=.d)
 
 .PHONY: all clean fclean re
