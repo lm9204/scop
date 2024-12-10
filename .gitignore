@@ -5,3 +5,5 @@ scop
 
 *.d
 *.o
+**/*.dSYM
+**/*_test
